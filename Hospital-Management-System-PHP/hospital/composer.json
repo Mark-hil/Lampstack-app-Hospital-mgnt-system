@@ -1,0 +1,15 @@
+{
+    "name": "mark-hill/hospital-management-system-php",
+    "autoload": {
+        "psr-4": {
+            "MarkHill\\HospitalManagementSystemPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mark-hill",
+            "email": "markhill6072@gmail.com"
+        }
+    ],
+    "require": {}
+}

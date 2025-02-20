@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    environment:
+      DB_HOST: mysql
+      DB_NAME: hms
+      DB_USER: root
+      DB_PASSWORD: root
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hms
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
